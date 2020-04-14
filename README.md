@@ -3,6 +3,12 @@
 ### Dataset
 * RSNE dataset [Kaggle link](https://www.kaggle.com/kmader/rsna-bone-age)
 
+### Run
+```
+#Download dataset to data/ folder
+
+python bone_age_prediction.py
+```
 ## Facial dysmorphism project
 ### Dataset
 * FairFace [GitHub link](https://github.com/joojs/fairface)
