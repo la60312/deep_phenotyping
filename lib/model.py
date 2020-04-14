@@ -13,9 +13,9 @@ def mae_months(mu, sigma):
     :param sigma: sigma
     :return: loss
     """
-    def loss(in_gt, in_pred):
+    def mae_loss(in_gt, in_pred):
         return mean_absolute_error(mu+sigma*in_gt, mu+sigma*in_pred)
-    return loss
+    return mae_loss
 
 
 def get_bone_gender_age_vgg_model(image_shape, logger, mu, sigma):

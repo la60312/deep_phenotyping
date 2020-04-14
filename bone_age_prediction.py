@@ -128,7 +128,7 @@ def split_dataset(df, logger, seed=0):
 def main():
     os.environ["CUDA_VISIBLE_DEVICES"] = str(0)
     start = time.time()
-    RAND_SEED = 8307
+    RAND_SEED = 2408
     IMG_SIZE = (224, 224)
     logger = get_logger()
     logger.info("=== Start bone age prediction ===")
@@ -178,8 +178,7 @@ def main():
 
     logger.info("=== Star training model ===")
     # Model Callbacks
-    epochs = 2
-    # weight_path="bone_age_weights_trainable_VGG16_gender_50_epochs_relu_less_dropout_dense_no_gender.best.hdf5"
+    epochs = 20
     weight_path = "bone_age_weights_untrainable_VGG16_gender" +\
                   "_{}_epochs_relu_less_dropout_dense.best.hdf5".format(epochs)
     checkpoint = ModelCheckpoint(weight_path,
@@ -240,7 +239,7 @@ def main():
     ax1.legend()
     ax1.set_xlabel('Actual Age (Months)')
     ax1.set_ylabel('Predicted Age (Months)')
-    plt.savefig('prediction_no_gender.png')
+    plt.savefig('prediction_gender_epoch_{}.png'.format(epochs))
 
     ord_idx = np.argsort(test_Y)
     ord_idx = ord_idx[np.linspace(0, len(ord_idx)-1, num=8).astype(int)]
